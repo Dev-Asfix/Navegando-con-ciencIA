@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navegando con CiencIA - Monitoreo Marino</title>
+
+    <!-- Google Fonts: Poppins para un aspecto moderno -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <!-- Font Awesome para iconos profesionales -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="dashboard-header">
+      <div class="header-content">
+        <i class="fas fa-ship header-icon"></i>
+        <h1>Navegando con CiencIA: Monitoreo del Agua</h1>
+        <p>Datos en tiempo real para una pesca sostenible en Paita, Piura</p>
+      </div>
+    </header>
+
+    <main class="dashboard-main">
+      <!-- SECCIÓN DE VISUALIZACIÓN 3D DEL BARCO -->
+      <section class="dashboard-section visualizer-3d fade-in">
+        <h2 class="section-title">
+          <i class="fas fa-cube icon-title"></i> Visualización del Barco en 3D
+        </h2>
+        <div class="card-content">
+          <iframe
+            id="threejs-iframe"
+            src="/vers/index.html"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+      <!-- FIN DE LA SECCIÓN 3D -->
+
+      <!-- SECCIÓN DEL MAPA -->
+      <section class="dashboard-section map-section fade-in delay-1">
+        <h2 class="section-title">
+          <i class="fas fa-map-marker-alt icon-title"></i> Ubicación del Barco
+        </h2>
+        <div class="card-content">
+          <div id="mapid"></div>
+        </div>
+      </section>
+      <!-- FIN DE LA SECCIÓN DEL MAPA -->
+
+      <!-- SECCIÓN DE PARÁMETROS ACTUALES -->
+      <section class="dashboard-section data-display fade-in delay-2">
+        <h2 class="section-title">
+          <i class="fas fa-chart-line icon-title"></i> Parámetros Actuales del
+          Agua
+        </h2>
+        <div class="data-cards">
+          <div class="card data-card">
+            <i class="fas fa-flask card-icon"></i>
+            <h3>pH</h3>
+            <p id="ph-value">Cargando...</p>
+          </div>
+          <div class="card data-card">
+            <i class="fas fa-thermometer-half card-icon"></i>
+            <h3>Temperatura (°C)</h3>
+            <p id="temp-value">Cargando...</p>
+          </div>
+          <div class="card data-card">
+            <i class="fas fa-water card-icon"></i>
+            <h3>Turbidez (NTU)</h3>
+            <p id="turbidity-value">Cargando...</p>
+          </div>
+          <div class="card data-card">
+            <i class="fas fa-globe card-icon"></i>
+            <h3>Ubicación GPS</h3>
+            <p id="gps-value">Cargando...</p>
+          </div>
+        </div>
+      </section>
+      <!-- FIN DE LA SECCIÓN DE PARÁMETROS -->
+
+      <!-- SECCIÓN DE HISTORIAL DE PARÁMETROS (GRÁFICOS) -->
+      <section class="dashboard-section charts-section fade-in delay-3">
+        <h2 class="section-title">
+          <i class="fas fa-history icon-title"></i> Historial de Parámetros
+        </h2>
+        <div class="charts-grid">
+          <div class="card chart-container">
+            <canvas id="phChart"></canvas>
+          </div>
+          <div class="card chart-container">
+            <canvas id="tempChart"></canvas>
+          </div>
+          <div class="card chart-container">
+            <canvas id="turbidityChart"></canvas>
+          </div>
+        </div>
+      </section>
+      <!-- FIN DE LA SECCIÓN DE GRÁFICOS -->
+    </main>
+
+    <footer class="dashboard-footer">
+      <p>&copy; 2025 Navegando con CiencIA - IESTP "Hermanos Cárcamo"</p>
+    </footer>
+
+    <!-- OTROS SCRIPTS DE TU DASHBOARD -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

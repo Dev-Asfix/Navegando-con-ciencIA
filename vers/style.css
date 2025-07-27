@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    /* Evita barras de desplazamiento en el iframe */
+    background-color: transparent;
+    /* Permite que el color de fondo de la escena 3D se vea */
+}
+
+#container {
+    width: 100vw;
+    /* Ocupa todo el ancho del iframe */
+    height: 100vh;
+    /* Ocupa toda la altura del iframe */
+    display: block;
+    /* Asegura que no haya espacios extra */
+}
